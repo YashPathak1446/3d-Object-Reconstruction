@@ -24,23 +24,26 @@ This projct demonstrates a comprehensive pipeline for 3D reconstruction of a man
 
 ## Usage
 **1. Camera Calibration**
-- Prepare multi-view images of the mannequin with a calibrated stereo camera setup.
-- Use calibration scripts to calculate camera matrices and distortion coefficients.
+- Use the ```calib_jpg_u/``` folder containing checkerboard images for stereo calibration.
+- The calibration code ```project.ipynb``` calculates intrinsic and extrinsic camera parameters.  
+- Use calibration code to calculate camera matrices and distortion coefficients.
 
 **2. 3D Point Cloud Generation**
-- Triangulate 2D points from left and right camera views to generate 3D points.
+- Triangulate 2D points from left and right camera views to generate 3D points through triangulation function in ```camutils.py```.
 - Prune points outside the bounding box for cleaner reconstruction.
 
 **3. Point Cloud Alignment**
+- Align point clouds from ```manny/``` using ICP.
 - Sample and align point clouds using the ICP algorithm to merge multiple viewpoints.
-- Visualize the aligned point clouds to validate the alignment process.
+- Merge scans from all orientations (```grab_o_u``` to ```grab_4_u```) into a sinngle combined point cloud.
+- Visualize the aligned point clouds to validate the alignment process through functions in ```visutils.py```.
 
 **4. Mesh Reconstruction**
-- Generate a 3D mesh from the aligned point cloud using alpha-shape meshing.
-- Remove noise and small disconnected components from the mesh.
+- Convert the combined point cloud into a 3D mesh using alpha-shape meshing.
+- Clean up the mesh by removing the small disconnected components and unreferences vertices.
 
 **5. Texture Mapping**
-- Apply textures from the original images to the mesh for photorealistic rendering.
+- Apply textures from the original images to the final mesh for photorealistic rendering.
 
 ## Project Structure
 ```
