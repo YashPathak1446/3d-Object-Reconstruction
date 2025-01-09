@@ -2,6 +2,11 @@
 ## Overview
 This projct demonstrates a comprehensive pipeline for 3D reconstruction of a mannequin using multi-view camera calibration, triangulation, mesh alignment, and advance mesh processing techniques. By combining image-based reconstruction, point cloud alignment, and meshing, the workflow generates a textured 3D model suitable for visualization and analysis.
 
+## Live Demonstration
+https://github.com/user-attachments/assets/27916bb3-f4b4-4010-9efd-34d4748bdc15
+
+
+
 ## Features
 - **Camera Calibration:** Computes intrinsic and extinsic camera parameters to accurately map 2D image coordinates to 3D space.
 - **Triangulation:** Uses calibrated multi-view images to generate dense 3D points from stereo correspondences.
